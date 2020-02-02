@@ -7,18 +7,17 @@
  */
 
 import React from 'react';
-import { View, Text, SafeAreaView } from 'react-native';
 
-import Index from './view/index';
+import Routes from './src/routes';
+
 
 
 const App: () => React$Node = () => {
-    return <SafeAreaView>
-        {/* <StatusBar barStyle="dark-content" ></StatusBar> */}
-        <Text>hello world</Text>
-        <Index></Index>
-    </SafeAreaView>;
+    return <Routes></Routes>
+        {/* <View style={styles.flex}>
+            <Index></Index>
+        </View> */}
+        // <SafeAreaView style={styles.flex}></SafeAreaView>;
 };
-
 
 export default App;
