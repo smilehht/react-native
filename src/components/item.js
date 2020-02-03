@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation'
+import PlayBtn from './playBtn.js';
 import common from '../style/common.js';
 import {size} from '../utils/utils'
 import { TouchableHighlight } from 'react-native-gesture-handler';
@@ -38,9 +39,7 @@ class Item extends Component {
                     <Image
                         style={{width: size(250), height: size(250)}}
                         source={{uri: image_url}} />
-                    {is_video && <View style={style.video_btn}>
-                        <View style={style.video_tri}></View>
-                    </View>}
+                    {is_video && <View style={style.video_btn}><PlayBtn /></View>}
                 </View>
                 <View style={[common.flex, style.info]}>
                     <View>
@@ -91,24 +90,7 @@ let style = StyleSheet.create({
         position: 'absolute',
         left: '50%',
         top: '50%',
-        width: size(80),
-        height: size(80),
-        transform: [{translate: [ -size(40), -size(40), 0]}],
-        borderRadius: 80,
-        backgroundColor: 'rgba(0,0,0,.7)',
-    },
-    video_tri: {
-        marginLeft:size(30),
-        marginTop:size(20),
-        borderTopWidth: size(20),
-        borderLeftWidth: size(30),
-        borderRightWidth: size(20),
-        borderBottomWidth: size(20), 
-        borderLeftColor: '#fff',
-        borderRightColor: 'transparent',
-        borderTopColor: 'transparent',
-        borderBottomColor: 'transparent'
-        // borderColor: ['transparent', 'transparent', '#fff', 'transparent']
+        transform: [{translate: [ -size(40), -size(40), 0]}]
     },
     info: {
         display: 'flex',

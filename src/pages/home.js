@@ -3,6 +3,7 @@ import { ScrollView, View, Image, ListView} from 'react-native';
 import api from '../utils/api.js';
 import Item from '../components/item';
 import {size} from '../utils/utils'
+import common from '../style/common.js';
 
 export default class Home extends Component {
 
@@ -35,12 +36,8 @@ export default class Home extends Component {
 	render() {
 		let {list} = this.state;
 		console.log(list.length);
-		return <ScrollView>
-			<View style={{
-				paddingLeft: size(20),
-				paddingRight: size(20),
-				backgroundColor: '#F2F2F2'
-			}}>
+		return <ScrollView style={common.page_wrapper}>
+			<View>
 				{!!list.length && list.map((item, index) => {
 					return <Item
 						key={index}
