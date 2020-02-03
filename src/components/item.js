@@ -25,12 +25,29 @@ export default class Home extends Component {
                 </View>}
             </View>
             <View style={[common.flex, style.info]}>
-                <Text
-                    style={style.title}
-                    numberOfLines={2}
-                >
-                    {item.title}
-                </Text>
+                <View>
+                    <Text
+                        style={style.title}
+                        numberOfLines={2}
+                    >
+                        {item.title}
+                    </Text>
+                </View>
+                {item.media_avatar_url && <View style={style.source}>
+                    <Image
+                        style={{
+                            width: size(50),
+                            height: size(50),
+                            borderWidth: size(1),
+                            borderColor: 'gray',
+                            borderRadius: 50
+                        }}
+                        source={{uri: item.media_avatar_url}}
+                    ></Image>
+                    <Text style={{
+                        marginLeft: 10
+                    }}>{item.source}</Text>
+                </View>}
             </View>
         </View>;
     }
@@ -43,7 +60,8 @@ let style = StyleSheet.create({
     },
     container: {
         overflow: 'hidden',
-        marginTop: size(20),
+        marginTop: size(10),
+        marginBottom: size(10),
         backgroundColor: '#fff',
         borderRadius: size(8)
     },
@@ -74,13 +92,21 @@ let style = StyleSheet.create({
         // borderColor: ['transparent', 'transparent', '#fff', 'transparent']
     },
     info: {
+        display: 'flex',
+        paddingTop: size(10),
+        paddingBottom: size(10),
+        justifyContent: 'space-between',
         paddingLeft: size(20),
         paddingRight: size(20)
     },
     title: {
-        paddingTop: size(10),
         fontSize: size(36),
         lineHeight: size(50),
         textAlign: 'justify'
+    },
+    source: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center'
     }
 });

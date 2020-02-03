@@ -7,9 +7,10 @@
  */
 
 import React from 'react';
-
+import {SafeAreaView} from 'react-native'
 import Routes from './src/routes';
 
+import common from './src/style/common.js';
 
 
 const App: () => React$Node = () => {
