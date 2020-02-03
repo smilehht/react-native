@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Image, ListView} from 'react-native';
-import common from '../style/common.js';
 import api from '../utils/api.js';
 import Item from '../components/item';
+import {size} from '../utils/utils'
 
 export default class Home extends Component {
 
@@ -33,16 +33,16 @@ export default class Home extends Component {
 		let {list} = this.state;
 		console.log(list.length);
 		return <ScrollView>
-			<View style={{}}>
+			<View style={{
+				paddingLeft: size(20),
+				paddingRight: size(20),
+				backgroundColor: '#F2F2F2'
+			}}>
 				{!!list.length && list.map((item, index) => {
-					return <View
+					return <Item
 						key={index}
-						style={{
-							paddingBottom: 10
-						}}
-					>
-						<Item item={item} />
-					</View>
+						item={item}
+					/>
 				})}
 			</View>
       	</ScrollView>

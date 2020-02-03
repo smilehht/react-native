@@ -1,5 +1,5 @@
 const api = {
-    async get(params) {
+    get(params) {
         let {url, data = {}, headers = {} } = params
 
         return new Promise((resolve, reject) => {
@@ -9,12 +9,14 @@ const api = {
                     ...headers
                 },
             })
-            .then(response => response.json())
+            .then(response => {
+                return response.json()
+            })
             .then(result => {
                 resolve(result)
             })
             .catch(error => {
-                reject()
+                reject(error)
             })
         })
     },
