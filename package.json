@@ -17,6 +17,7 @@
     "react-native-image-picker": "^2.2.1",
     "react-native-screens": "^2.0.0-alpha.32",
     "react-native-swiper": "^1.5.14",
+    "react-native-video": "^5.0.2",
     "react-navigation": "^3.13.0"
   },
   "devDependencies": {

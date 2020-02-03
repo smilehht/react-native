@@ -6,7 +6,8 @@ import {
 } from 'react-navigation'
 
 import Home from './pages/home.js';
-import Video from './pages/video';
+import Video from './pages/video/index';
+import VideoDetail from './pages/video/detail';
 import Me from './pages/me.js';
 import Login from './pages/login.js';
 
@@ -66,6 +67,9 @@ const AppRouter = createStackNavigator({
     },
     Login: {
         screen: Login
+    },
+    VideoDetail: {
+        screen: VideoDetail
     }
 }, {
     initialRouteName: 'TabNavigator'

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Image, ListView} from 'react-native';
-import api from '../utils/api.js';
-import Item from '../components/item';
-import {size} from '../utils/utils'
+import Item from '../../components/item';
+import api from '../../utils/api.js';
+import {size} from '../../utils/utils'
 
 export default class Home extends Component {
 

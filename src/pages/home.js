@@ -6,9 +6,12 @@ import {size} from '../utils/utils'
 
 export default class Home extends Component {
 
-	state = {
-		list: []
-	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			list: []
+		};
+    }
 
 	componentDidMount() {
 		

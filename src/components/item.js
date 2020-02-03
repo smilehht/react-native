@@ -1,55 +1,74 @@
 import React, { Component } from 'react';
-import { Text, View, Image, StyleSheet } from 'react-native';
-
+import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { withNavigation } from 'react-navigation'
 import common from '../style/common.js';
 import {size} from '../utils/utils'
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 
-export default class Home extends Component {
+class Item extends Component {
+
+	constructor(props) {
+        super(props);
+    }
 
     static defaultProps = {
         item: '',
         is_video: false
     }
 
+    componentDidMount() {
+    }
+
+    toDetails = () => {
+        let {navigation, item} = this.props;
+        navigation.navigate('VideoDetail', {
+            item: item
+        });
+    }
+
     render() {
         let {item, is_video} = this.props;
         let image_url = (item.image_url.indexOf('http') > -1 ? '' : 'https:') + item.image_url
-        return <View style={[style.flex, style.container]}>
-            <View style={style.img}>
-                <Image
-                    style={{width: size(250), height: size(250)}}
-                    source={{uri: image_url}} />
-                {is_video && <View style={style.video_btn}>
-                    <View style={style.video_tri}></View>
-                </View>}
-            </View>
-            <View style={[common.flex, style.info]}>
-                <View>
-                    <Text
-                        style={style.title}
-                        numberOfLines={2}
-                    >
-                        {item.title}
-                    </Text>
-                </View>
-                {item.media_avatar_url && <View style={style.source}>
+        return <TouchableOpacity
+            onPress={this.toDetails}
+        >
+            <View style={[style.flex, style.container]}>
+                <View style={style.img}>
                     <Image
-                        style={{
-                            width: size(50),
-                            height: size(50),
-                            borderWidth: size(1),
-                            borderColor: 'gray',
-                            borderRadius: 50
-                        }}
-                        source={{uri: item.media_avatar_url}}
-                    ></Image>
-                    <Text style={{
-                        marginLeft: 10
-                    }}>{item.source}</Text>
-                </View>}
+                        style={{width: size(250), height: size(250)}}
+                        source={{uri: image_url}} />
+                    {is_video && <View style={style.video_btn}>
+                        <View style={style.video_tri}></View>
+                    </View>}
+                </View>
+                <View style={[common.flex, style.info]}>
+                    <View>
+                        <Text
+                            style={style.title}
+                            numberOfLines={2}
+                        >
+                            {item.title}
+                        </Text>
+                    </View>
+                    {item.media_avatar_url && <View style={style.source}>
+                        <Image
+                            style={{
+                                width: size(50),
+                                height: size(50),
+                                borderWidth: size(1),
+                                borderColor: 'gray',
+                                borderRadius: 50
+                            }}
+                            source={{uri: item.media_avatar_url}}
+                        ></Image>
+                        <Text style={{
+                            marginLeft: 10
+                        }}>{item.source}</Text>
+                    </View>}
+                </View>
             </View>
-        </View>;
+        </TouchableOpacity>;
     }
 }
 
@@ -110,3 +129,5 @@ let style = StyleSheet.create({
         alignItems: 'center'
     }
 });
+
+export default withNavigation(Item)
