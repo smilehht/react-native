@@ -18,6 +18,7 @@ class Detail extends Component {
             currentTime: 0.0,
             paused: false
         }
+        this.isEnd = false;
     }
 
     componentDidMount() {
@@ -28,7 +29,7 @@ class Detail extends Component {
 
     clickVideo = () => {
         let {paused} = this.state;
-        this.setState({
+        !this.isEnd && this.setState({
             paused: !paused
         });
     }
@@ -39,7 +40,8 @@ class Detail extends Component {
     }
 
     onEnd = () => {
-
+        console.log('end, end');
+        this.isEnd = true;
     }
 
     onProgress = () => {
