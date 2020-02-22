@@ -91,7 +91,7 @@ class Detail extends Component {
                 </View>
             </TouchableHighlight>
             <View>
-                <Text>1111111</Text>
+                <Text>11111111</Text>
             </View>
         </View>
     }
