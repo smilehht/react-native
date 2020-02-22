@@ -93,7 +93,6 @@ class Detail extends Component {
             <View>
                 <Text>1111111</Text>
                 <Text>2222222</Text>
-                <Text>3333333</Text>
             </View>
         </View>
     }
